@@ -15,10 +15,13 @@ def send(msg, n=1):
 def attack():
     msg = msgpack.packb(['foo.bar', 333333, {"foo": "a"*1000}])
     msg *= 100
+    t1 = time.time()
     while 1:
-        t1 = time.time()
-        send(msg, 100)
+        send(msg, 25)
         t2 = time.time()
-        time.sleep(1 - (t2-t1))
+        td = t2-t1
+        t1 = t2
+        if td < 0.25:
+            time.sleep(0.25 - td)
 
 attack()
