@@ -20,7 +20,7 @@ def attack():
         send(msg, 25)
         t2 = time.time()
         td = t2-t1
-        t1 = t2
+        t1 += 0.25
         if td < 0.25:
             time.sleep(0.25 - td)
 
