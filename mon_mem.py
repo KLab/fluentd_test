@@ -10,6 +10,6 @@ def monitor(pid):
             if L.startswith('VmRSS'):
                 #print L
                 print L.split()[1]
-        time.sleep(5)
+        time.sleep(1.1)
 
 monitor(sys.argv[1])
